@@ -81,18 +81,18 @@
 --******************************************************************************
 
     SELECT
-        EMPNO, ENAME, SAL, SAL*12 AS ANNSAL
+        EMPNO, ENAME, SAL, ROUND(SAL/30, 2) AS DAILY_SAL
     FROM
         EMP
     ORDER BY
-        ANNSAL;
+        SAL*12;
 
 --******************************************************************************
 -- 9. Display the Empno, Ename, job, Hiredate, Exp of all Mgrs
 --******************************************************************************
 
     SELECT
-        EMPNO, ENAME, JOB, HIREDATE
+        EMPNO, ENAME, JOB, HIREDATE, TRUNC(MONTHS_BETWEEN(CURRENT_DATE, HIREDATE)/12) AS EXP
     FROM
         EMP
     WHERE
@@ -108,7 +108,7 @@
 --******************************************************************************
 
     SELECT
-        EMPNO, ENAME, SAL, MGR
+        EMPNO, ENAME, SAL, TRUNC(MONTHS_BETWEEN(CURRENT_DATE, HIREDATE)/12) AS EXP
     FROM
         EMP
     WHERE
@@ -131,6 +131,14 @@
 --******************************************************************************
 -- 13. List the emps along with their Exp and Daily Sal is more than Rs 100
 --******************************************************************************
+
+    SELECT
+        EMPNO, ENAME, TRUNC(MONTHS_BETWEEN(CURRENT_DATE, HIREDATE)/12) AS EXP, ROUND(SAL/30, 2) AS DAILY_SAL
+    FROM
+        EMP
+    WHERE
+        SAL/30 > 100;
+
 --******************************************************************************
 -- 14. List the emps who are either ‘CLERK’ or ‘ANALYST’ in the Desc order
 --******************************************************************************
