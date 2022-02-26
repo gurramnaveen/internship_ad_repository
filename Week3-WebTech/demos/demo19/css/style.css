@@ -1,0 +1,27 @@
+body{
+    background-color: black;
+    color:aquamarine;
+}
+h1{
+    background-color: whitesmoke;
+    color:navy;
+    text-align:center;
+}
+nav{
+    background-color: red;
+    display: inline-block;
+    margin: 1px;
+    text-align: right;
+    width: 100%;
+}
+nav >a{
+    color: wheat;
+    margin: 2px;
+}
+footer{
+    background-color: whitesmoke;
+    color:navy;
+    font-weight: bolder;
+    /* margin-bottom: 0px; */
+    text-align: center;
+}
